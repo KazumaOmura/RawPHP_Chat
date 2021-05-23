@@ -1,0 +1,11 @@
+# .php を省略する設定例
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^([^.]+)$ $1.php [NC,L]
+
+<Files ~ ".(dwt|php)$">
+Deny from all
+</Files>
+
+php_flag mbstring.encoding_translation off
+php_value default_charset "UTF-8"
